@@ -2,7 +2,7 @@
 set -e
 
 # Additional operating system packages
-packages="awslogs"
+packages="awslogs jq aws-cfn-bootstrap"
 
 # Exclude Docker and ECS Agent from update
 sudo yum -y -x docker\* -x ecs\* update
