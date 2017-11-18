@@ -42,6 +42,10 @@
       "script": "scripts/cloud-init-options.sh"
     },
     {
+      "type": "shell",
+      "script": "scripts/cleanup.sh"
+    },
+    {
       "type": "file",
       "source": "files/firstrun.sh",
       "destination": "/home/ec2-user/firstrun.sh"

@@ -22,15 +22,6 @@ then
     /etc/sysconfig/docker
 fi
 
-# Stop Docker service
-sudo service docker stop
-
-# Remove Docker network database
-sudo rm -rf /var/lib/docker/network
-
-# Remove docker0 interface if it has been created
-sudo ip link del docker0 || true
-
 # Write AWS Logs region
 sudo tee /etc/awslogs/awscli.conf << EOF > /dev/null
 [plugins]
@@ -78,6 +69,9 @@ EOF
 
 # Start services
 sudo service awslogs start
+sudo chkconfig docker on
+sudo service docker start
+sudo start ecs
 
 # Exit gracefully if ECS_CLUSTER is not defined
 if [[ -z ${ECS_CLUSTER} ]]
