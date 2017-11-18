@@ -2,7 +2,8 @@
   "variables": {
     "aws_access_key_id": "{{env `AWS_ACCESS_KEY_ID`}}",
     "aws_secret_access_key": "{{env `AWS_SECRET_ACCESS_KEY`}}",
-    "aws_session_token": "{{env `AWS_SESSION_TOKEN`}}"
+    "aws_session_token": "{{env `AWS_SESSION_TOKEN`}}",
+    "time_zone": "{{env `TIME_ZONE`}}"
   },
   "builders": [
     {
@@ -24,6 +25,14 @@
       }
     }
   ],
-  "provisioners": [],
+  "provisioners": [
+    {
+      "type": "shell",
+      "script": "scripts/configure-timezone.sh",
+      "environment_vars": [
+        "TIME_ZONE={{user `time_zone`}}"
+      ]
+    }
+  ],
   "post-processors": []
 }
