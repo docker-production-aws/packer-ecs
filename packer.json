@@ -32,6 +32,11 @@
       "environment_vars": [
         "TIME_ZONE={{user `time_zone`}}"
       ]
+    },
+    {
+      "type": "file",
+      "source": "files/firstrun.sh",
+      "destination": "/home/ec2-user/firstrun.sh"
     }
   ],
   "post-processors": []
