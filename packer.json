@@ -38,6 +38,10 @@
       "script": "scripts/install-os-packages.sh"
     },
     {
+      "type": "shell",
+      "script": "scripts/cloud-init-options.sh"
+    },
+    {
       "type": "file",
       "source": "files/firstrun.sh",
       "destination": "/home/ec2-user/firstrun.sh"
